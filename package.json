@@ -3,9 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
+    "framer-motion": "^12.34.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "react-scripts": "5.0.1"
+    "react-intersection-observer": "^10.0.2",
+    "react-scripts": "5.0.1",
+    "react-spring": "^10.0.3",
+    "three": "^0.182.0"
   },
   "scripts": {
     "start": "react-scripts start",

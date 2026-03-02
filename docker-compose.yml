@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  smartcleaner-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: smartcleaner-frontend
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    networks:
+      - smartcleaner-network
+
+networks:
+  smartcleaner-network:
+    driver: bridge
