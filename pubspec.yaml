@@ -1,0 +1,79 @@
+name: smart_phone_cleaner
+description: "Smart Phone Cleaner – Storage Manager - Premium storage cleaning app"
+publish_to: 'none'
+version: 1.0.2+3
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # State Management
+  provider: ^6.1.1
+  
+  # UI & Design
+  google_fonts: ^6.1.0
+  lottie: ^3.0.0
+  confetti: ^0.7.0
+  
+  # Storage & File Management
+  path_provider: ^2.1.1
+  permission_handler: ^11.1.0
+  crypto: ^3.0.3
+  
+  # Device Information
+  device_info_plus: ^9.1.1
+  battery_plus: ^6.0.0
+  
+  # Utilities
+  shared_preferences: ^2.2.2
+  url_launcher: ^6.2.2
+  share_plus: ^7.2.1
+  
+  # Charts (for storage breakdown)
+  fl_chart: ^0.66.0
+  video_player: ^2.10.1
+  video_thumbnail: ^0.5.3
+  
+  # AdMob (commented - add after setting up AdMob account)
+  # google_mobile_ads: ^4.0.0
+  # Instructions:
+  # 1. Create AdMob account: https://admob.google.com
+  # 2. Create app and ad units
+  # 3. Uncomment this dependency
+  # 4. Add Ad Unit IDs in lib/services/ad_service.dart
+  # 5. Add AdMob App ID in AndroidManifest.xml
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
+  flutter_launcher_icons: ^0.14.4
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: false
+  image_path: "assets/images/Storage_Logo.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/images/Storage_Logo.png"
+    background_color: "#hex_code"
+    theme_color: "#hex_code"
+  windows:
+    generate: true
+    image_path: "assets/images/Storage_Logo.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path: "assets/images/Storage_Logo.png"
+
+flutter:
+  uses-material-design: true
+  
+  # Add app icon and splash screen assets here
+  assets:
+    - assets/images/
+    - assets/lottie/
