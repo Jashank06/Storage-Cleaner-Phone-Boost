@@ -3,7 +3,9 @@ import { motion } from 'framer-motion';
 import './Hero.css';
 import FloatingPhone from './FloatingPhone';
 
-const Hero = () => {
+const Hero = ({ enable3D = true, lowPower = false }) => {
+  const shouldAnimate = enable3D && !lowPower;
+
   return (
     <section className="hero" id="hero">
       <div className="hero-content">
@@ -97,13 +99,17 @@ const Hero = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
         >
-          <FloatingPhone />
+          {enable3D ? (
+            <FloatingPhone lowPower={lowPower} />
+          ) : (
+            <div className="phone-fallback glass-card" aria-hidden="true" />
+          )}
           
           {/* Floating elements */}
           <motion.div
             className="floating-card glass-card card-1"
-            animate={{ y: [0, -20, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            animate={shouldAnimate ? { y: [0, -20, 0] } : {}}
+            transition={shouldAnimate ? { duration: 4, repeat: Infinity, ease: "easeInOut" } : {}}
           >
             <div className="card-icon">🧹</div>
             <div className="card-text">
@@ -114,8 +120,8 @@ const Hero = () => {
 
           <motion.div
             className="floating-card glass-card card-2"
-            animate={{ y: [0, 15, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            animate={shouldAnimate ? { y: [0, 15, 0] } : {}}
+            transition={shouldAnimate ? { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.5 } : {}}
           >
             <div className="card-icon">⚡</div>
             <div className="card-text">
@@ -126,8 +132,8 @@ const Hero = () => {
 
           <motion.div
             className="floating-card glass-card card-3"
-            animate={{ y: [0, -15, 0] }}
-            transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            animate={shouldAnimate ? { y: [0, -15, 0] } : {}}
+            transition={shouldAnimate ? { duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1 } : {}}
           >
             <div className="card-icon">📊</div>
             <div className="card-text">

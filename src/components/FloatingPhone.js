@@ -55,21 +55,24 @@ function PhoneModel() {
   );
 }
 
-const FloatingPhone = () => {
+const FloatingPhone = ({ lowPower = false }) => {
   return (
     <div className="floating-phone-container">
-      <Canvas>
+      <Canvas
+        dpr={lowPower ? 1 : 1.5}
+        gl={{ antialias: !lowPower, powerPreference: lowPower ? 'low-power' : 'high-performance' }}
+      >
         <PerspectiveCamera makeDefault position={[0, 0, 5]} />
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
         <pointLight position={[-10, -10, -10]} intensity={0.5} />
         <PhoneModel />
-        <Environment preset="city" />
+        {!lowPower && <Environment preset="city" />}
         <OrbitControls
           enableZoom={false}
           enablePan={false}
           autoRotate
-          autoRotateSpeed={2}
+          autoRotateSpeed={lowPower ? 0.6 : 2}
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />

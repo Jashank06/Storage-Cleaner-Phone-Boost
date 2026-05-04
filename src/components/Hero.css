@@ -121,6 +121,15 @@
   justify-content: center;
 }
 
+.phone-fallback {
+  width: 320px;
+  height: 640px;
+  border-radius: 36px;
+  background: linear-gradient(160deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.2));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+}
+
 .floating-card {
   position: absolute;
   padding: 20px;
